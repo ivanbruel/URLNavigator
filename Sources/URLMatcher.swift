@@ -77,7 +77,7 @@ open class URLMatcher {
   ///
   /// - returns: A `URLMatchComponents` struct that holds the URL pattern string, a dictionary of URL placeholder
   ///            values, and any query items.
-  public open func match(_ url: URLConvertible, scheme: String? = nil, from urlPatterns: [String]) -> URLMatchComponents? {
+  open func match(_ url: URLConvertible, scheme: String? = nil, from urlPatterns: [String]) -> URLMatchComponents? {
     let normalizedURLString = self.normalized(url, scheme: scheme).urlStringValue
     let urlPathComponents = normalizedURLString.components(separatedBy: "/") // e.g. ["myapp:", "user", "123"]
 
