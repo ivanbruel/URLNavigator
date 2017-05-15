@@ -77,7 +77,7 @@ open class URLMatcher {
   ///
   /// - returns: A `URLMatchComponents` struct that holds the URL pattern string, a dictionary of URL placeholder
   ///            values, and any query items.
-  open func match(_ url: URLConvertible, scheme: String? = nil, from urlPatterns: [String]) -> URLMatchComponents? {
+  public open func match(_ url: URLConvertible, scheme: String? = nil, from urlPatterns: [String]) -> URLMatchComponents? {
     let normalizedURLString = self.normalized(url, scheme: scheme).urlStringValue
     let urlPathComponents = normalizedURLString.components(separatedBy: "/") // e.g. ["myapp:", "user", "123"]
 
@@ -159,7 +159,7 @@ open class URLMatcher {
   /// - parameter dirtyURL: The dirty URL to be normalized.
   ///
   /// - returns: The normalized URL. Returns `nil` if the pecified URL is invalid.
-  func normalized(_ dirtyURL: URLConvertible, scheme: String? = nil) -> URLConvertible {
+  public func normalized(_ dirtyURL: URLConvertible, scheme: String? = nil) -> URLConvertible {
     guard dirtyURL.urlValue != nil else {
       return dirtyURL
     }
